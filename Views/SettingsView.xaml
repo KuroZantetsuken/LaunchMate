@@ -110,9 +110,12 @@
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
+                                    <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <TextBlock Name="ArgsText" Grid.Column="0" Text="{DynamicResource LOCLaunchMateExeArgs}" VerticalAlignment="Center"/>
                                 <TextBox Name="ArgsBox" Grid.Column="1" Text="{Binding Action.TargetArgs, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBlock Name="WorkDirText" Grid.Row="1" Grid.Column="0" Text="Launch Directory: " VerticalAlignment="Center"/>
+                                <TextBox Name="WorkDirBox" Grid.Row="1" Grid.Column="1" Text="{Binding Action.WorkingDirectory, UpdateSourceTrigger=PropertyChanged}"/>
                             </Grid>
                             <Grid x:Name="r0c1Web" Grid.Row="2" Grid.Column="0" Margin="0,10,0,10" Visibility="Hidden">
                                 <Grid.ColumnDefinitions>
