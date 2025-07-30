@@ -14,7 +14,7 @@ namespace LaunchMate.Models
         string Target { get; set; }
         string TargetArgs { get; set; }
         Screen OpenScreen { get; set; }
-        bool Execute(string groupName, Screen screen = null);
+        bool Execute(string groupName, Screen screen = null, Playnite.SDK.Events.OnGameStartingEventArgs args = null);
         void AutoClose(string groupName);
 
     }

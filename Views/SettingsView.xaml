@@ -110,9 +110,11 @@
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
+                                    <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <TextBlock Name="ArgsText" Grid.Column="0" Text="{DynamicResource LOCLaunchMateExeArgs}" VerticalAlignment="Center"/>
                                 <TextBox Name="ArgsBox" Grid.Column="1" Text="{Binding Action.TargetArgs, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text="Available variables: %GameDir%, %GameExe%" Foreground="Gray" FontStyle="Italic"/>
                             </Grid>
                             <Grid x:Name="r0c1Web" Grid.Row="2" Grid.Column="0" Margin="0,10,0,10" Visibility="Hidden">
                                 <Grid.ColumnDefinitions>

@@ -11,7 +11,7 @@ namespace LaunchMate.Models
 {
     public class StartServiceAction : ActionBase
     {
-        public override bool Execute(string groupName, Screen screen = null)
+        public override bool Execute(string groupName, Screen screen = null, Playnite.SDK.Events.OnGameStartingEventArgs args = null)
         {
             ILogger logger = LogManager.GetLogger();
             using(var sc = new ServiceController(Target))

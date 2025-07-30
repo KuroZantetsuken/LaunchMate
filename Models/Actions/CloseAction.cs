@@ -12,7 +12,7 @@ namespace LaunchMate.Models
 {
     public class CloseAction : ActionBase
     {
-        public override bool Execute(string groupName, Screen screen = null)
+        public override bool Execute(string groupName, Screen screen = null, Playnite.SDK.Events.OnGameStartingEventArgs args = null)
         {
             ILogger logger = LogManager.GetLogger();
             if ((Target ?? "") == string.Empty)

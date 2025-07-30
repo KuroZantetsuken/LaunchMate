@@ -22,7 +22,7 @@ namespace LaunchMate.Models
         /// </summary>
         /// <param name="groupName">The name of the group executing the action</param>
         /// <returns>true if the execution was successful, false otherwise</returns>
-        public abstract bool Execute(string groupName, Screen screen = null);
+        public abstract bool Execute(string groupName, Screen screen = null, Playnite.SDK.Events.OnGameStartingEventArgs args = null);
 
         /// <summary>
         /// Automatically closes something launched by <see cref="Execute(string)", if applicable/>
