@@ -37,7 +37,7 @@ namespace LaunchMate.Models
             if (args != null)
             {
                 processedArgs = processedArgs.Replace("%GameDir%", args.Game.InstallDirectory);
-                processedArgs = processedArgs.Replace("%GameExe%", args.Game.GameActions.First().Path);
+                processedArgs = processedArgs.Replace("%GameExe%", Path.GetFileName(args.Game.GameActions.First().Path));
             }
 
             logger.Info($"{groupName} - Launching application \"{Target}\" with arguments \"{processedArgs}\"");
