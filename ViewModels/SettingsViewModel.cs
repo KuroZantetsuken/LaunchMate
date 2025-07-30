@@ -117,7 +117,8 @@ namespace LaunchMate.ViewModels
                         group.Action = new AppAction
                         {
                             Target = group.Action.Target,
-                            TargetArgs = group.Action.TargetArgs
+                            TargetArgs = group.Action.TargetArgs,
+                            WorkingDirectory = ((AppAction)group.Action).WorkingDirectory
                         };
                         break;
                     case ActionType.Web:

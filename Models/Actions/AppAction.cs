@@ -19,6 +19,8 @@ namespace LaunchMate.Models
 
         //public string LnkName { get => _lnkName; set => SetValue(ref _lnkName, value); }
 
+        public string WorkingDirectory { get; set; }
+
         public override bool Execute(string groupName, Screen screen = null)
         {
             ILogger logger = LogManager.GetLogger();
@@ -37,7 +39,8 @@ namespace LaunchMate.Models
                 API.Instance.Notifications.Remove($"{groupName} - Error: {Target}");
                 ProcessStartInfo startInfo = new ProcessStartInfo(Target)
                 {
-                    Arguments = TargetArgs
+                    Arguments = TargetArgs,
+                    WorkingDirectory = WorkingDirectory
                 };
                 Process p = Process.Start(startInfo);
                 //MoveWindow(p, screen);
