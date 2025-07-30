@@ -18,7 +18,7 @@ namespace LaunchMate.Models
         [DontSerialize]
         public IWebView WebView { get; set; } = null;
 
-        public override bool Execute(string groupName, Screen screen = null)
+        public override bool Execute(string groupName, Screen screen = null, Playnite.SDK.Events.OnGameStartingEventArgs args = null)
         {
             ILogger logger = LogManager.GetLogger();
             if (screen == null)

@@ -19,9 +19,8 @@ namespace LaunchMate.Models
 
         //public string LnkName { get => _lnkName; set => SetValue(ref _lnkName, value); }
 
+        public override bool Execute(string groupName, Screen screen = null, Playnite.SDK.Events.OnGameStartingEventArgs args = null)
         public string WorkingDirectory { get; set; }
-
-        public override bool Execute(string groupName, Screen screen = null)
         {
             ILogger logger = LogManager.GetLogger();
             if (screen == null)
@@ -33,13 +32,21 @@ namespace LaunchMate.Models
             {
                 return false;
             }
-            logger.Info($"{groupName} - Launching application \"{Target}\" with arguments \"{TargetArgs}\"");
+
+            string processedArgs = TargetArgs;
+            if (args != null)
+            {
+                processedArgs = processedArgs.Replace("%GameDir%", args.Game.InstallDirectory);
+                processedArgs = processedArgs.Replace("%GameExe%", args.Game.GameActions.First().Path);
+            }
+
+            logger.Info($"{groupName} - Launching application \"{Target}\" with arguments \"{processedArgs}\"");
             try
             {
                 API.Instance.Notifications.Remove($"{groupName} - Error: {Target}");
                 ProcessStartInfo startInfo = new ProcessStartInfo(Target)
                 {
-                    Arguments = TargetArgs,
+                    Arguments = processedArgs
                     WorkingDirectory = WorkingDirectory
                 };
                 Process p = Process.Start(startInfo);

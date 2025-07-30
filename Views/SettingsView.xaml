@@ -114,6 +114,7 @@
                                 </Grid.RowDefinitions>
                                 <TextBlock Name="ArgsText" Grid.Column="0" Text="{DynamicResource LOCLaunchMateExeArgs}" VerticalAlignment="Center"/>
                                 <TextBox Name="ArgsBox" Grid.Column="1" Text="{Binding Action.TargetArgs, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text="Available variables: %GameDir%, %GameExe%" Foreground="Gray" FontStyle="Italic"/>
                                 <TextBlock Name="WorkDirText" Grid.Row="1" Grid.Column="0" Text="Launch Directory: " VerticalAlignment="Center"/>
                                 <TextBox Name="WorkDirBox" Grid.Row="1" Grid.Column="1" Text="{Binding Action.WorkingDirectory, UpdateSourceTrigger=PropertyChanged}"/>
                             </Grid>
